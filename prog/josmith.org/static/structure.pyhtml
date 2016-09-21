@@ -1,0 +1,44 @@
+authorizeClause = (
+	'<li> <a href="/{}/introduction">Log out</a><br>'.format (self.app.logoutResponseUrl)
+	if
+	self.user
+	else
+	'<li> <a href="/{}/introduction">Log in</a><br>'.format (self.app.loginUrl)
+)
+
+self.content = '''
+	<html>
+		<body bgcolor="c0c0c0" link="007040" alink="ffffa0" vlink="007040">
+			<style>
+				<!--
+					a:link {text-decoration:none}
+					a:active {text-decoration:none}
+					a:visited {text-decoration:none}
+				-->
+			</style>
+			<table width=100%>
+			<tr><td>
+			<font face = "arial" size="6" color="ffc000">
+			<i><font color="0000ff">J. O. <font color="000077">S m i t h</i>
+			</td></tr>
+			<tr><td>
+			<font face = "arial" size="2" color="000000">
+			Really simple WSGI server
+			</td></tr>
+			</table>
+			<hr/>
+			<img src="b3.jpg">
+			<p>
+			<font face = "arial">
+			<font size="2" color="007040">
+			<hr>
+			<ul>
+				<li> <a href="introduction.html" target="content">What is Josmith</a>
+				<li> <a href="downloads" target="content">Downloads</a>
+				<li> <a href="downloads/qquick_licence.txt" target="content">Licence</a>
+				<li> <a href="contactdata.html" target="content">Contact</a>
+				@auth
+			</ul>
+		</body>
+	</html>
+'''.replace ('@auth', authorizeClause)
