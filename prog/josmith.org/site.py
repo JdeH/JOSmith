@@ -63,4 +63,8 @@ class Site (App):
 				
 		return super () .__call__ (environ, start_response)
 		
+# If name == '__main__' a test server will be instantiated
+# If it isn't, so site.py is a module rather than a main program, the production server will do it's job
+# Further explanation in app.py and baseApp.py
+
 application = Site (__file__, __name__)

@@ -81,5 +81,10 @@ class App (baseApp.BaseApp, baseClauses.BaseClauses):
 		self.db = db.Db (self)
 		self.cs = self.db.connect ()
 				
+		# If we started this up locally by typing 'python site.py' (with python version >= 3.5)
 		if self.siteModuleName == '__main__':
+			# Instantiate and start a simple test server, as defined and explained in baseApp.py
+			# It will call method BaseApp.__call__ for each page request
 			self.serve ()
+		# If we didn't start it up that way, calling BaseApp.__call__ is left to the production server, e.g. mod_wsgi
+		# This means that site.py is then a module imported by that production server, rather than the main program

@@ -111,7 +111,7 @@ class UrlMatcher:
 						# If it has a name it's a kwarg
 						kwargs [chunkPair [0][1:]] = chunkPair [1]
 					
-			# Fixed args are elements of the referene pattern from and including the 2nd one
+			# Fixed args are elements of the reference pattern from and including the 2nd one
 			# They're always passed as first elements in the args parameter of the constructor of the page class
 			# So effectively it is as if they were passed in as part of the URL matching anonymous wildcards
 			# In other words, they seem part of the actual page URL
